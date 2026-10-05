@@ -28,5 +28,5 @@ tasks.register('runAdkWebServer', JavaExec) {
     description = 'Runs the ADK web server.'
     classpath = sourceSets.main.runtimeClasspath
     mainClass = 'com.google.adk.web.AdkWebServer'
-    args '--adk.agents.source-dir=build/classes/java', '--server.port=8000'
+    args '--adk.agents.source-dir=build/classes/java', '--server.port=8000', '--reload'
 }

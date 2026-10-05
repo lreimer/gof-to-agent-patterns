@@ -1,16 +1,18 @@
 package de.qaware.agentic;
 
-
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.LlmAgent;
 import com.google.adk.tools.Annotations.Schema;
 import com.google.adk.tools.FunctionTool;
 
+import io.reactivex.rxjava3.core.Maybe;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 public class HelloTimeAgent {
+
+    private static final System.Logger LOGGER = System.getLogger(HelloTimeAgent.class.getName());
 
     public static BaseAgent ROOT_AGENT = initAgent();
 
@@ -24,6 +26,10 @@ public class HelloTimeAgent {
                         """)
                 .model("gemini-flash-latest")
                 .tools(FunctionTool.create(HelloTimeAgent.class, "getCurrentTime"))
+                .afterToolCallback((invocationContext, tool, input, toolContext, response) -> {
+                    LOGGER.log(System.Logger.Level.INFO, "Tool executed: {0}", tool.name());
+                    return Maybe.empty();
+                })
                 .build();
     }
 
