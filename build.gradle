@@ -10,6 +10,11 @@ repositories {
 dependencies {
     implementation 'com.google.adk:google-adk:1.11.0'
     implementation 'com.google.adk:google-adk-dev:1.11.0'
+
+    // core LangChain4j library and OpenAI compatible model
+    implementation 'com.google.adk:google-adk-langchain4j:1.11.0'
+    implementation 'dev.langchain4j:langchain4j-core:1.12.2'
+    implementation 'dev.langchain4j:langchain4j-open-ai:1.12.2'
 }
 
 java {

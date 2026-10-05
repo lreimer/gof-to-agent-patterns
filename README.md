@@ -4,6 +4,8 @@ Demo repository for Design Patterns for the Agentic Era.
 
 ## Design Patterns
 
+**Strategy** is the GoF pattern that allows exchanging the model used by `LlmAgent`. The strategy abstraction is `BaseLlm`, defining `generateContent()` and `connect()`, different implementations providing model-specific behavior. A **Builder** configures the agent; the **Strategy** makes the model behavior interchangeable.
+
 **Adapter** is the primary GoF pattern for `FunctionTool`, as it adapts an ordinary Java method making it usable as agent tool. It builds the function declaration, converts tool arguments into method parameters, invokes the method through reflection, and normalizes its result. It also has a **Command-like** aspect because it encapsulates an executable operation.
 
 **Chain of Responsibility** is the closest GoF match for ADK’s model and tool callback mechanism for interception and control; Observer-like for logging-only usage.
