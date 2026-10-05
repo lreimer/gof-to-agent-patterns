@@ -18,7 +18,6 @@ The logging callback is **Observer-like**, because it reacts to a lifecycle even
 
 ## References
 
-- 
 
 ## Maintainer
 
